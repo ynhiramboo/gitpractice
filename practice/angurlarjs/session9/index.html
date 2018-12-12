@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session8</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-app="demoFilter">
+	<div ng-controller="filterController" class="container row justify-content-md-center col-md-8">
+		<br />
+		<label>OrderBy:</label>
+		<select ng-model="sortColumn">
+			<option value="Name">Name ASC</option>
+			<option value="BirthDate">BirthDate ASC</option>
+			<option value="Gender">Gender ASC</option>
+			<option value="Salary">Salary ASC</option>
+			<option value="-Name">Name DESC</option>
+			<option value="-BirthDate">BirthDate DESC</option>
+			<option value="-Gender">Gender DESC</option>
+			<option value="-Salary">Salary DESC</option>
+		</select>
+		<table class="table bordered">
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>BirthDate</td>
+					<td>Gender</td>
+					<td>Salary</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | orderBy:sortColumn">
+					<td>{{employee.Name}}</td>
+					<td>{{employee.BirthDate | date:"dd/MM/yyyy"}}</td>
+					<td>{{employee.Gender}}</td>
+					<td>{{employee.Salary | currency:"VNĐ"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
