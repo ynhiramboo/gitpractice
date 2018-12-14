@@ -1,0 +1,18 @@
+<table class="table bordered">
+	<thead>
+		<tr>
+			<td ng-click="sortedData('Name')">Name<div ng-class="getSortedClass('Name')"></div></td>
+			<td ng-click="sortedData('BirthDate')">BirthDate<div ng-class="getSortedClass('BirthDate')"></div></td>
+			<td ng-click="sortedData('Gender')">Gender<div ng-class="getSortedClass('Gender')"></div></td>
+			<td ng-click="sortedData('Salary')">Salary<div ng-class="getSortedClass('Salary')"></div></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="employee in employees | orderBy:sortColumn:reverse | filter:searchText">
+			<td>{{employee.Name}}</td>
+			<td>{{employee.BirthDate | date:"dd/MM/yyyy"}}</td>
+			<td>{{employee.Gender}}</td>
+			<td>{{employee.Salary | currency:"VNĐ"}}</td>
+		</tr>
+	</tbody>
+</table>

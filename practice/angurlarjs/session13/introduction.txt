@@ -1,0 +1,1 @@
+Introduce about ng-hide and ng-show in AngularJs

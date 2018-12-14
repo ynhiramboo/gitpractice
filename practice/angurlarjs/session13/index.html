@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session8</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<style type="text/css">
+		table thead tr{
+	      cursor:pointer;
+	    }
+	    /*This class displays the UP arrow*/
+	    .arrow-up {
+	      width: 0;
+	      height: 0;
+	      border-left: 5px solid transparent;
+	      border-right: 5px solid transparent;
+	      border-bottom: 10px solid black;
+	      display: inline-block;
+	    }
+	    /*This class displays the DOWN arrow*/
+	    .arrow-down {
+	      width: 0;
+	      height: 0;
+	      border-left: 5px solid transparent;
+	      border-right: 5px solid transparent;
+	      border-top: 10px solid black;
+	      display: inline-block;
+	    }
+	</style>
+</head>
+<body ng-app="demoFilter">
+	<div ng-controller="filterController" class="container row justify-content-md-center col-md-8">
+		<label>Select Option: </label>
+		<select ng-model="employeeInclude">
+			<option value="tableEmployee.html">Table</option>
+			<option value="listEmployee.html">List</option>
+		</select>
+		<div ng-include="employeeInclude"></div>
+	</div>
+</body>
+</html>
