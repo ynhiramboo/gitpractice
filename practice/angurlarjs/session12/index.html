@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session8</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<style type="text/css">
+		table thead tr{
+	      cursor:pointer;
+	    }
+	    /*This class displays the UP arrow*/
+	    .arrow-up {
+	      width: 0;
+	      height: 0;
+	      border-left: 5px solid transparent;
+	      border-right: 5px solid transparent;
+	      border-bottom: 10px solid black;
+	      display: inline-block;
+	    }
+	    /*This class displays the DOWN arrow*/
+	    .arrow-down {
+	      width: 0;
+	      height: 0;
+	      border-left: 5px solid transparent;
+	      border-right: 5px solid transparent;
+	      border-top: 10px solid black;
+	      display: inline-block;
+	    }
+	</style>
+</head>
+<body ng-app="demoFilter">
+	<div ng-controller="filterController" class="container row justify-content-md-center col-md-8">
+		<br />
+		<label>Search:</label>
+		<input type="text" name="text" ng-model="searchText" />
+		<label>
+			<input type="checkbox" name="checkbox" ng-model="hideSalary"/>HideSalary
+		</label>
+		<table class="table bordered">
+			<thead>
+				<tr>
+					<td ng-click="sortedData('Name')">Name<div ng-class="getSortedClass('Name')"></div></td>
+					<td ng-click="sortedData('BirthDate')">BirthDate<div ng-class="getSortedClass('BirthDate')"></div></td>
+					<td ng-click="sortedData('Gender')">Gender<div ng-class="getSortedClass('Gender')"></div></td>
+					<td ng-hide="hideSalary" ng-click="sortedData('Salary')">Salary<div ng-class="getSortedClass('Salary')"></div></td>
+					<td ng-show="hideSalary" ng-click="sortedData('Salary')">Salary<div ng-class="getSortedClass('Salary')"></div></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | orderBy:sortColumn:reverse | filter:searchText">
+					<td>{{employee.Name}}</td>
+					<td>{{employee.BirthDate | date:"dd/MM/yyyy"}}</td>
+					<td>{{employee.Gender}}</td>
+					<td ng-hide="hideSalary">{{employee.Salary | currency:"VNĐ"}}</td>
+					<td ng-show="hideSalary">XXXXXXXXXX</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
