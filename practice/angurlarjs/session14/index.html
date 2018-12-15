@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session14</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body ng-app="demoWebservice">
+	<div ng-controller="webserviceController" class="container row justify-content-md-center col-md-8">
+		<table class="table bordered">
+	            <thead>
+		            <tr>
+			            <td>Mã Sinh Viên</td>
+			            <td>Họ Tên</td>
+			            <td>Giới Tính</td>
+			            <td>Ngày Sinh</td>
+			            <td>Số Điện Thoại</td>
+			            <td>Email</td>
+			            <td>Mã Khoa</td>
+		            </tr>
+	            </thead>
+	            <tbody>
+		            <tr ng-repeat="employee in employees">
+			            <td>{{employee.msv}}</td>
+			            <td>{{employee.hoTen}}</td>
+			            <td>{{employee.gioiTinh}}</td>
+			            <td>{{employee.ngaySinh}}</td>
+			            <td>{{employee.sDT}}</td>
+			            <td>{{employee.email}}</td>
+			            <td>{{employee.maKhoa}}</td>
+		            </tr>
+	            </tbody>
+        </table>
+	</div>
+</body>
+</html>
