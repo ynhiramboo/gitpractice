@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>String Processing</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+    <script src="js/stringService.js" type="text/javascript"></script>
+</head>
+<body ng-controller="processingstringcontroller">
+    <table>
+        <thead>
+            <tr>
+                <td>Input String</td>
+                <td><input type="text" ng-model="input" /></td>
+            </tr>
+            <tr>
+                <td>Output String</td>
+                <td><input type="text" ng-model="output" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button ng-click="transformString(input)">Process</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button ng-click="toLower(input)">ToLower</button>
+                </td>
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>
